@@ -2,6 +2,9 @@ import React from "react";
 import { formatPrice } from "../helpers";
 
 class Fish extends React.Component {
+  handleClick = () => {
+    this.props.addToOrder(this.props.index);
+  }
 
   render() {
     // const image = this.props.details.image;
@@ -19,7 +22,7 @@ class Fish extends React.Component {
         <p>{desc}</p>
         <button 
           disabled={!isAvailable}
-          onClick={ () =>  this.props.addToOrder(this.props.index) }>
+          onClick={ this.handleClick }>
           {isAvailable? 'Add To Order' : 'Sold out'}
         
         </button>
